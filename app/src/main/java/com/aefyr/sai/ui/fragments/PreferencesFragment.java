@@ -15,7 +15,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
-
 import com.aefyr.sai.BuildConfig;
 import com.aefyr.sai.R;
 import com.aefyr.sai.analytics.AnalyticsProvider;
@@ -24,7 +23,6 @@ import com.aefyr.sai.shell.SuShell;
 import com.aefyr.sai.ui.activities.AboutActivity;
 import com.aefyr.sai.ui.activities.ApkActionViewProxyActivity;
 import com.aefyr.sai.ui.activities.BackupSettingsActivity;
-import com.aefyr.sai.ui.activities.DonateActivity;
 import com.aefyr.sai.ui.dialogs.DarkLightThemeSelectionDialogFragment;
 import com.aefyr.sai.ui.dialogs.FilePickerDialogFragment;
 import com.aefyr.sai.ui.dialogs.SimpleAlertDialogFragment;
@@ -40,12 +38,11 @@ import com.aefyr.sai.utils.Theme;
 import com.aefyr.sai.utils.Utils;
 import com.github.angads25.filepicker.model.DialogConfigs;
 import com.github.angads25.filepicker.model.DialogProperties;
+import rikka.shizuku.Shizuku;
 
 import java.io.File;
 import java.util.List;
 import java.util.Objects;
-
-import rikka.shizuku.Shizuku;
 
 public class PreferencesFragment extends PreferenceFragmentCompat implements FilePickerDialogFragment.OnFilesSelectedListener, SingleChoiceListDialogFragment.OnItemSelectedListener, BaseBottomSheetDialogFragment.OnDismissListener, SharedPreferences.OnSharedPreferenceChangeListener, DarkLightThemeSelectionDialogFragment.OnDarkLightThemesChosenListener, Shizuku.OnRequestPermissionResultListener {
 
@@ -128,7 +125,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Fil
 
         Preference donatePref = Objects.requireNonNull(findPreference("donate"));
         donatePref.setOnPreferenceClickListener(p -> {
-            startActivity(new Intent(requireContext(), DonateActivity.class));
+//            startActivity(new Intent(requireContext(), DonateActivity.class));
             return true;
         });
         donatePref.setVisible(!BuildConfig.HIDE_DONATE_BUTTON);

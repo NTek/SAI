@@ -10,13 +10,9 @@ import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import com.aefyr.sai.R;
 import com.aefyr.sai.adapters.ThemeAdapter;
 import com.aefyr.sai.billing.BillingManager;
-import com.aefyr.sai.billing.DefaultBillingManager;
-import com.aefyr.sai.billing.DonationStatus;
-import com.aefyr.sai.ui.activities.DonateActivity;
 import com.aefyr.sai.ui.dialogs.base.BaseBottomSheetDialogFragment;
 import com.aefyr.sai.utils.Theme;
 import com.aefyr.sai.utils.Utils;
@@ -63,7 +59,7 @@ public class ThemeSelectionDialogFragment extends BaseBottomSheetDialogFragment 
             mMode = args.getInt(EXTRA_MODE, MODE_APPLY);
         }
 
-        mBillingManager = DefaultBillingManager.getInstance(requireContext());
+//        mBillingManager = DefaultBillingManager.getInstance(requireContext());
     }
 
     @Nullable
@@ -96,11 +92,11 @@ public class ThemeSelectionDialogFragment extends BaseBottomSheetDialogFragment 
 
     @Override
     public void onThemeClicked(Theme.ThemeDescriptor theme) {
-        DonationStatus donationStatus = mBillingManager.getDonationStatus().getValue();
-        if (theme.isDonationRequired() && !donationStatus.unlocksThemes()) {
-            DonateActivity.start(requireContext());
-            return;
-        }
+//        DonationStatus donationStatus = mBillingManager.getDonationStatus().getValue();
+//        if (theme.isDonationRequired() && !donationStatus.unlocksThemes()) {
+//            DonateActivity.start(requireContext());
+//            return;
+//        }
 
         switch (mMode) {
             case MODE_APPLY:

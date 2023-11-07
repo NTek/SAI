@@ -3,19 +3,17 @@ package com.aefyr.sai.utils;
 import android.content.Context;
 import android.util.Log;
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
 /**
  * Mirror of android.util.Log and some of the com.crashlytics.android.Crashlytics methods
  */
 public class Logs {
 
     private static PreferencesHelper sPrefsHelper;
-    private static FirebaseCrashlytics sCrashlytics;
+    //private static FirebaseCrashlytics sCrashlytics;
 
     public static void init(Context context) {
         sPrefsHelper = PreferencesHelper.getInstance(context.getApplicationContext());
-        sCrashlytics = FirebaseCrashlytics.getInstance();
+        //sCrashlytics = FirebaseCrashlytics.getInstance();
     }
 
     //Log.v
@@ -119,12 +117,12 @@ public class Logs {
 
     //Crashlytics
     private static void log(LogLevel level, String tag, String message) {
-        sCrashlytics.log(String.format("%s/%s %s", level.format(), tag, message));
+        //sCrashlytics.log(String.format("%s/%s %s", level.format(), tag, message));
     }
 
     public static void logException(Throwable tr) {
-        if (isCrashlyticsAvailable())
-            sCrashlytics.recordException(tr);
+        //if (isCrashlyticsAvailable())
+            //sCrashlytics.recordException(tr);
     }
 
     private static boolean isCrashlyticsAvailable() {

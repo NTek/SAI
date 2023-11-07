@@ -132,7 +132,7 @@ public class PreferencesHelper {
     }
 
     public boolean isAnalyticsEnabled() {
-        return mPrefs.getBoolean(PreferencesKeys.ENABLE_ANALYTICS, true);
+        return mPrefs.getBoolean(PreferencesKeys.ENABLE_ANALYTICS, false);
     }
 
     public void setAnalyticsEnabled(boolean enabled) {

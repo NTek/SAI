@@ -3,14 +3,10 @@ package com.aefyr.sai.analytics;
 import android.content.Context;
 
 import com.aefyr.sai.utils.PreferencesHelper;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class DefaultAnalyticsProvider implements AnalyticsProvider {
 
     private static DefaultAnalyticsProvider sInstance;
-
     private Context mContext;
     private PreferencesHelper mPrefsHelper;
 
@@ -21,7 +17,6 @@ public class DefaultAnalyticsProvider implements AnalyticsProvider {
     private DefaultAnalyticsProvider(Context context) {
         mContext = context.getApplicationContext();
         mPrefsHelper = PreferencesHelper.getInstance(mContext);
-
         sInstance = this;
     }
 
@@ -37,6 +32,7 @@ public class DefaultAnalyticsProvider implements AnalyticsProvider {
 
     @Override
     public void setDataCollectionEnabled(boolean enabled) {
+        /* Disabled FBC
         FirebaseApp.getInstance().setDataCollectionDefaultEnabled(enabled);
         FirebaseAnalytics.getInstance(mContext).setAnalyticsCollectionEnabled(enabled);
 
@@ -46,5 +42,6 @@ public class DefaultAnalyticsProvider implements AnalyticsProvider {
         crashlytics.deleteUnsentReports();
 
         mPrefsHelper.setAnalyticsEnabled(enabled);
+         */
     }
 }
