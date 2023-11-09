@@ -10,6 +10,16 @@ android {
         versionName "4.5-N2"
     }
 
+    signingConfigs {
+        NORAMAL {
+            keyAlias 'cmusai'
+            keyPassword 'cmusai'
+            storeFile file('../config/signing/NORMAL-keystore.jks')
+            storePassword 'cmusai'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,6 +34,7 @@ android {
             buildConfigField "int", "DEFAULT_THEME", "0"
             buildConfigField "int", "DEFAULT_DARK_THEME", "1"
             buildConfigField "boolean", "HIDE_DONATE_BUTTON", "false"
+            signingConfig signingConfigs.NORAMAL
         }
 
         fdroid {
@@ -33,6 +44,9 @@ android {
             buildConfigField "int", "DEFAULT_DARK_THEME", "11"
             buildConfigField "boolean", "HIDE_DONATE_BUTTON", "false"
         }
+    }
+
+
     }
 
     compileOptions {
